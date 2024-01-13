@@ -7,7 +7,7 @@
 class JOYSTICK {
   public:
     JOYSTICK(int joystickPin, int directionPin, int leftPin, int middlePin, int rightPin);
-    void checkDirection();
+    int checkDirection();
   
   private:
     void resetLights();

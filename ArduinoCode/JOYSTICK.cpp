@@ -19,7 +19,7 @@ void JOYSTICK::resetLights() { // turns off all lights
   digitalWrite(rightLED_, LOW);
 }
 
-void JOYSTICK::checkDirection() { // reads direction from joystick
+int JOYSTICK::checkDirection() { // reads direction from joystick
   directionNum_ = analogRead(directionRead_);
   Serial.println(directionNum_);
   if (directionNum_ > 800) {
@@ -32,6 +32,7 @@ void JOYSTICK::checkDirection() { // reads direction from joystick
     direction_ = 2;
   }
   showDirection();
+  return direction_;
 }
 
 void JOYSTICK::showDirection() { //shows direction using LEDs

@@ -7,13 +7,15 @@
 class BUTTON {
   public:
     BUTTON(int pin);
-    void pressed();
+    bool pressed();
   
   private:
     void shoot();
     void displayAmmo();
     int pin_;
     int ammo = 0;
+    int buttonState;
+    int priorState = 1;
 };
 
 #endif // for BUTTON.h

@@ -4,19 +4,30 @@
 #include "PEDAL.h"
 #include "CAPACITANCE.h"
 #include "JOYSTICK.h"
+#include "ENEMY.h"
 
-LED player(3, 4, 5);
-LED enemy(4, 5, 6);
-BUTTON shooter(7);
-JOYSTICK point(2, A0, 3, 4, 5);
+LED playerLED(3, 4, 5);
+LED enemyLED(3, 4, 5);
+BUTTON shooter(6);
+JOYSTICK point(2, A0, 9, 10, 11);
+ENEMY murdoc(0);
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  //player.resetHealth();
+  randomSeed(4);
+  enemyLED.resetHealth();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  point.checkDirection();
+  if (shooter.pressed()) {
+    if (point.checkDirection() == murdoc.getPosition()) {
+      enemyLED.hit();
+    }
+  }
+  else {
+    point.checkDirection();
+  }
+  delay(500);
 }
