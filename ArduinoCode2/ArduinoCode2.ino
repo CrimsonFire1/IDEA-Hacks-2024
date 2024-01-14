@@ -69,7 +69,7 @@ void setup() {
   pinMode(FIRE_YELLOW, OUTPUT);
   pinMode(FIRE_RED, OUTPUT);
   pinMode(LED_LEFT, OUTPUT);
-  pinMode(LED_MIDDLE, OUTPUT);
+  pinMode(LED_MIDDLE, OTPUT);
   pinMode(LED_RIGHT, OUTPUT);
   pinMode(TOUCH_SENSOR, INPUT);
   pinMode(END_GAME_LED, OUTPUT);
